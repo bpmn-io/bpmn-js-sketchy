@@ -6,6 +6,12 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.4.0
+
+* `FEAT`: add sketchy demo
+* `FIX`: correct UMD bundle location meta-data
+* `CHORE`: only pack dependencies into prebuilt distribution for UMD bundle
+
 ## 0.3.0
 
 * `FEAT`: do not require regenerator runtime to use
