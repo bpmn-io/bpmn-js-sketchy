@@ -1,2 +1,4 @@
+!dist/
+test/
 .eslintrc
-test
+karma.conf.js
