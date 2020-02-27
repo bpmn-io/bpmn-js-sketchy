@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "source": "lib/index.js",
   "module": "dist/index.esm.js",
-  "unpkg": "dist/bpmn-js-sketchy.umd.js",
+  "unpkg": "dist/index.umd.js",
   "scripts": {
     "all": "run-s lint test build:*",
     "lint": "eslint .",
