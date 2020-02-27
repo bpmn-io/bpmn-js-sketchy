@@ -1,6 +1,6 @@
 # bpmn-js-sketchy
 
-A sketchy renderer for [bpmn-js](https://github.com/bpmn-io/bpmn-js).
+A sketchy renderer for [bpmn-js](https://github.com/bpmn-io/bpmn-js). [__:arrow_right: Try it out__](https://cdn.statically.io/gh/bpmn-io/bpmn-js-sketchy/4608e2f6/demo/index.html).
 
 ![sketchy renderer at work](docs/screenshot.png)
 
@@ -17,7 +17,7 @@ const modeler = new Modeler({
 });
 ```
 
-For the full sketchy experience, you must configure bpmn-js to use [a hand drawn font](https://fonts.google.com/specimen/Nothing+You+Could+Do?selection.family=Nothing+You+Could+Do).
+For the full sketchy experience, you must configure bpmn-js to use a hand drawn font, for example [Nothing You Could Do](https://fonts.google.com/specimen/Nothing+You+Could+Do?selection.family=Nothing+You+Could+Do).
 
 Check out [the demo](./demo) or [this test](test/SketchyRendererSpec.js#L42) for more information.
 
