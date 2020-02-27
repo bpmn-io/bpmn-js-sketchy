@@ -7,10 +7,11 @@
   "module": "dist/index.esm.js",
   "unpkg": "dist/bpmn-js-sketchy.umd.js",
   "scripts": {
-    "all": "run-s lint test build",
+    "all": "run-s lint test build:*",
     "lint": "eslint .",
     "dev": "npm test -- --auto-watch --no-single-run",
-    "build": "microbundle --external none --name BpmnJSSketchy",
+    "build:standard": "microbundle -f es,cjs",
+    "build:umd": "microbundle -f umd --external none --name BpmnJSSketchy",
     "test": "karma start"
   },
   "repository": {
