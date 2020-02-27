@@ -50,12 +50,12 @@ describe('SketchyRenderer', function() {
           defaultStyle: {
             fontFamily: '"Nothing You Could Do"',
             fontWeight: 'bold',
-            fontSize: 12,
-            lineHeight: 16
+            fontSize: 17,
+            lineHeight: 1.2
           },
           externalStyle: {
-            fontSize: 12,
-            lineHeight: 16
+            fontSize: 16,
+            lineHeight: 1.1
           }
         },
         additionalModules: [ sketchyRendererModule ]
