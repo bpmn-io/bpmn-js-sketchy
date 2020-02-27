@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>bpmn-js-sketchy demo</title>
+
+    <!-- required modeler styles -->
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@6.3.0/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@6.3.0/dist/assets/bpmn-font/css/bpmn.css">
+
+    <!-- sketchy font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do&display=swap">
+
+    <!-- viewer distro -->
+    <script src="https://unpkg.com/bpmn-js@6.3.0/dist/bpmn-modeler.production.min.js"></script>
+
+    <!-- sketchy distro -->
+    <script src="https://unpkg.com/bpmn-js-sketchy/dist/index.umd.js"></script>
+
+    <!-- app misc -->
+    <script src="https://unpkg.com/downloadjs@1.4.7/download.js"></script>
+    <script src="https://unpkg.com/file-drops@0.4.0/dist/file-drops.umd.js"></script>
+
+    <!-- example styles -->
+    <style>
+      html, body, #canvas {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .buttons {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0)
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        font: .9em sans-serif;
+        background: #BBDEFB;
+        border: solid 1px #64B5F6;
+        border-radius: 3px;
+        padding: 10px 13px;
+      }
+
+      button {
+        background: #FAFAFA;
+        border: solid 1px #CCC;
+        border-radius: 3px;
+        padding: 7px 10px;
+      }
+
+      button:hover {
+        border-color: #AAA;
+        background:  #E9E9E9;
+      }
+
+      button + button {
+        margin-left: 10px;
+      }
+
+      .drop-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 20px;
+        background: rgba(0,0,0, .3);
+        z-index: 500;
+        text-align: left;
+      }
+
+      .drop-overlay .label {
+        color: #ededed;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font: bold 2em sans-serif ;
+      }
+
+      .drop-overlay .box {
+        border: dashed 5px #ededed;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 90%;
+        height: 90%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+
+    <div class="buttons">
+      <button id="download-bpmn">Save BPMN</button>
+      <button id="download-svg">Save as SVG</button>
+    </div>
+
+    <div class="notification">
+      <strong>Hint: </strong> Drop your own diagram to sketchify it!
+    </div>
+
+    <script>
+
+      /* global BpmnJS, download, BpmnJsSketchy, FileDrops */
+
+      var file = { name: 'diagram.bpmn' };
+
+      var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-sketchy/a891af1fb3c2e6f6b7a85e5e1c562f941b9db24f/test/pizza-collaboration.bpmn';
+
+      // modeler instance
+      var bpmnEditor = new BpmnJS({
+        container: '#canvas',
+        textRenderer: {
+          defaultStyle: {
+            fontFamily: '"Nothing You Could Do"',
+            fontWeight: 'bold',
+            fontSize: 17,
+            lineHeight: 1.2
+          },
+          externalStyle: {
+            fontSize: 16,
+            lineHeight: 1.1
+          }
+        },
+        additionalModules: [
+          BpmnJsSketchy
+        ]
+      });
+
+      /**
+       * Save diagram contents and print them to the console.
+       */
+      function downloadSVG() {
+        bpmnEditor.saveSVG((err, svg) => {
+
+          if (err) {
+            return console.error('Failed to save SVG', err);
+          }
+
+          return download(svg, file.name + '.svg', 'application/xml');
+        });
+      }
+
+      function downloadBPMN() {
+        bpmnEditor.saveXML({ format: true }, (err, xml) => {
+
+          if (err) {
+            return console.error('Failed to save XML', err);
+          }
+
+          return download(xml, file.name, 'application/xml');
+        });
+      }
+
+      /**
+       * Open diagram in our modeler instance.
+       *
+       * @param {String} bpmnXML diagram to display
+       */
+      function openDiagram(bpmnXML) {
+
+        // import diagram
+        bpmnEditor.importXML(bpmnXML, function(err) {
+
+          if (err) {
+            return console.error('could not import BPMN 2.0 diagram', err);
+          }
+
+          // access modeler components
+          var canvas = bpmnEditor.get('canvas');
+
+          // zoom to fit full viewport
+          canvas.zoom('fit-viewport');
+        });
+      }
+
+      // load external diagram file via AJAX and open it
+      fetch(diagramUrl).then(r => r.text()).then(openDiagram);
+
+      // wire save button
+      document.querySelector('#download-svg').addEventListener('click', downloadSVG);
+
+      // wire save button
+      document.querySelector('#download-bpmn').addEventListener('click', downloadBPMN);
+
+      const dropHandler = FileDrops('Drop a BPMN diagram', function(files) {
+
+        if (files.length) {
+          file = files[0];
+
+          openDiagram(file.contents);
+        }
+      });
+
+      document.querySelector('body').addEventListener('dragover', dropHandler);
+
+    </script>
+  </body>
+</html>
