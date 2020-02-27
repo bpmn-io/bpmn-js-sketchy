@@ -6,6 +6,11 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.0
+
+* `DOCS`: link demo
+* `CHORE`: fix demo sketch global
+
 ## 0.4.0
 
 * `FEAT`: add sketchy demo
