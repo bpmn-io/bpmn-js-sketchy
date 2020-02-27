@@ -10,7 +10,7 @@ insertCSS('bpmn-embedded.css', require('bpmn-js/dist/assets/bpmn-font/css/bpmn-e
 
 import Modeler from 'bpmn-js/lib/Modeler';
 
-import sketchyRendererModule from '../';
+import sketchyRendererModule from '../lib';
 
 import processXML from './pizza-collaboration.bpmn';
 
