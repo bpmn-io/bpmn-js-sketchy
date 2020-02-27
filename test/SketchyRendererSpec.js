@@ -8,7 +8,7 @@ import {
 
 insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css'));
 
-insertCSS('bpmn-embedded.css', require('bpmn-font/dist/css/bpmn-embedded.css'));
+insertCSS('bpmn-embedded.css', require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'));
 
 import Modeler from 'bpmn-js/lib/Modeler';
 
