@@ -1,14 +1,16 @@
+var suite = 'test/SketchyRendererSpec.js';
+
 module.exports = function(karma) {
   karma.set({
 
-    frameworks: [ 'browserify', 'mocha', 'chai' ],
+    frameworks: [ 'mocha', 'chai' ],
 
     files: [
-      'test/*Spec.js'
+      suite
     ],
 
     preprocessors: {
-      'test/*Spec.js': [ 'browserify' ]
+      [ suite ]: [ 'webpack' ]
     },
 
     reporters: [ 'progress' ],
@@ -18,22 +20,17 @@ module.exports = function(karma) {
     singleRun: true,
     autoWatch: false,
 
-    // browserify configuration
-    browserify: {
-      transform: [
-        [ 'babelify', {
-          global: true
-        } ],
-        [ 'stringify', {
-          global: true,
-          extensions: [
-            '.bpmn',
-            '.xml',
-            '.css'
-          ]
-        } ]
-      ],
-      debug: true
+    webpack: {
+      mode: 'development',
+      module: {
+        rules: [
+          {
+            test: /\.(bpmn|xml|css)$/,
+            use: 'raw-loader'
+          }
+        ]
+      },
+      devtool: 'eval-source-map'
     }
   });
 };
