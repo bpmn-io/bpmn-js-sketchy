@@ -1,5 +1,3 @@
-import 'regenerator-runtime/runtime';
-
 import TestContainer from 'mocha-test-container-support';
 
 import {
