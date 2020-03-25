@@ -19,7 +19,7 @@ const modeler = new Modeler({
 });
 ```
 
-For the full sketchy experience, you must configure bpmn-js to use a hand drawn font, for example [Nothing You Could Do](https://fonts.google.com/specimen/Nothing+You+Could+Do?selection.family=Nothing+You+Could+Do).
+For the full sketchy experience, you must configure bpmn-js to use a hand drawn font, for example [Virgil](http://www.eaglefonts.com/fg-virgil-ttf-131249.htm).
 
 Check out [the demo](./demo) or [this test](test/SketchyRendererSpec.js#L42) for more information.
 
