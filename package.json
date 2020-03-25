@@ -1,6 +1,6 @@
 {
   "name": "bpmn-js-sketchy",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "bpmn-js-sketchy",
   "main": "dist/index.js",
   "source": "lib/index.js",
