@@ -1,0 +1,6 @@
+/* http://www.eaglefonts.com/fg-virgil-ttf-131249.htm */
+@font-face {
+  font-family: "Virgil";
+  src: url("/base/demo/FG_Virgil.ttf");
+  font-display: swap;
+}

@@ -6,7 +6,9 @@ module.exports = function(karma) {
     frameworks: [ 'mocha', 'chai' ],
 
     files: [
-      suite
+      suite,
+      { pattern: 'demo/*', included: false },
+      { pattern: 'test/style.css', included: false }
     ],
 
     preprocessors: {
@@ -15,7 +17,7 @@ module.exports = function(karma) {
 
     reporters: [ 'progress' ],
 
-    browsers: [ 'Chrome' ],
+    browsers: [ 'ChromeHeadless' ],
 
     singleRun: true,
     autoWatch: false,

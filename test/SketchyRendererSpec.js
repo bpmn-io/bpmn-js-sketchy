@@ -14,19 +14,39 @@ import sketchyRendererModule from '../lib';
 
 import processXML from './pizza-collaboration.bpmn';
 
-function appendStylesheet(url, done) {
-  var stylesheet = document.createElement('link');
+function appendStylesheet(url) {
 
-  stylesheet.href = url;
-  stylesheet.rel = 'stylesheet';
-  stylesheet.type = 'text/css';
-  stylesheet.onload = done;
+  return new Promise((resolve, reject) => {
 
-  document.getElementsByTagName('head')[0].appendChild(stylesheet);
+    var stylesheet = document.createElement('link');
+
+    stylesheet.href = url;
+    stylesheet.rel = 'stylesheet';
+    stylesheet.type = 'text/css';
+    stylesheet.onload = resolve;
+    stylesheet.onerror = reject;
+
+    document.getElementsByTagName('head')[0].appendChild(stylesheet);
+  });
+}
+
+function wait(ms=0) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 
 describe('SketchyRenderer', function() {
+
+  this.timeout(10000);
+
+  before(async function() {
+    await appendStylesheet('/base/test/style.css');
+
+    await wait(2000);
+  });
+
 
   var container;
 
@@ -37,34 +57,33 @@ describe('SketchyRenderer', function() {
 
   it('should import process', function(done) {
 
-    // wait for font to load before rendering
-    appendStylesheet('https://fonts.googleapis.com/css?family=Nothing+You+Could+Do', function() {
-      var modeler = new Modeler({
-        container: container,
-        keyboard: {
-          bindTo: document
+    var modeler = new Modeler({
+      container: container,
+      keyboard: {
+        bindTo: document
+      },
+      textRenderer: {
+        defaultStyle: {
+          fontFamily: '"Virgil"',
+          fontWeight: 'normal',
+          fontSize: 16,
+          lineHeight: 1.1
         },
-        textRenderer: {
-          defaultStyle: {
-            fontFamily: '"Nothing You Could Do"',
-            fontWeight: 'bold',
-            fontSize: 17,
-            lineHeight: 1.2
-          },
-          externalStyle: {
-            fontSize: 16,
-            lineHeight: 1.1
-          }
-        },
-        additionalModules: [ sketchyRendererModule ]
-      });
+        externalStyle: {
+          fontSize: 15,
+          lineHeight: 1.1
+        }
+      },
+      additionalModules: [
+        sketchyRendererModule
+      ]
+    });
 
-      modeler.importXML(processXML, function(err, warnings) {
-        expect(err).to.not.exist;
-        expect(warnings).to.have.length(0);
+    modeler.importXML(processXML, function(err, warnings) {
+      expect(err).to.not.exist;
+      expect(warnings).to.have.length(0);
 
-        done();
-      });
+      done();
     });
   });
 
