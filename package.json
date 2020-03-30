@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "dev": "npm test -- --auto-watch --no-single-run",
     "build": "rollup -c",
-    "test": "karma start"
+    "test": "karma start",
+    "prepublishOnly": "run-s build"
   },
   "repository": {
     "type": "git",
