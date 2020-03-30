@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.3
+
+_Republish of `v0.5.2` with updated distribution._
+
 ## 0.5.2
 
 * `FIX`: correct group rendering
