@@ -6,6 +6,11 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.2
+
+* `FIX`: correct group rendering
+* `CHORE`: bundle with rollup
+
 ## 0.5.1
 
 * `CHORE`: fine tune roughness
