@@ -4,3 +4,4 @@ demo/
 .eslintrc
 .eslintignore
 karma.conf.js
+rollup.config.js
