@@ -34,7 +34,7 @@
     "@rollup/plugin-node-resolve": "^7.1.1",
     "bpmn-js": "^6.5.0-kah.1",
     "chai": "^4.2.0",
-    "diagram-js": "^6.4.1",
+    "diagram-js": "^6.5.0-kah.0",
     "eslint": "^6.8.0",
     "eslint-plugin-bpmn-io": "^0.10.0",
     "karma": "^4.4.1",
