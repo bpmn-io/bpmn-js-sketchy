@@ -51,8 +51,8 @@ export default [
   {
     input: srcEntry,
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      { file: pkg.main, format: 'cjs', exports: 'default' },
+      { file: pkg.module, format: 'es', exports: 'default' }
     ],
     external: [
       'inherits',
