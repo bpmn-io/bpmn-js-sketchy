@@ -32,9 +32,9 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
-    "bpmn-js": "^6.4.0",
+    "bpmn-js": "^10.2.0",
     "chai": "^4.2.0",
-    "diagram-js": "^6.4.1",
+    "diagram-js": "^9.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-bpmn-io": "^0.10.0",
     "karma": "^4.4.1",
@@ -54,9 +54,9 @@
   },
   "dependencies": {
     "inherits": "^2.0.4",
-    "min-dash": "^3.5.2",
-    "min-dom": "^3.1.2",
+    "min-dash": "^4.0.0",
+    "min-dom": "^4.0.3",
     "roughjs": "^4.0.4",
-    "tiny-svg": "^2.2.2"
+    "tiny-svg": "^3.0.0"
   }
 }
