@@ -1,3 +1,4 @@
+/* eslint-env node */
 var suite = 'test/SketchyRendererSpec.js';
 
 module.exports = function(karma) {
