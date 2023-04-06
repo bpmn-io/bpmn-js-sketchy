@@ -55,7 +55,7 @@ describe('SketchyRenderer', function() {
   });
 
 
-  it('should import process', function(done) {
+  it('should import process', async function() {
 
     var modeler = new Modeler({
       container: container,
@@ -79,12 +79,11 @@ describe('SketchyRenderer', function() {
       ]
     });
 
-    modeler.importXML(processXML, function(err, warnings) {
-      expect(err).to.not.exist;
-      expect(warnings).to.have.length(0);
+    const {
+      warnings
+    } = await modeler.importXML(processXML);
 
-      done();
-    });
+    expect(warnings).to.have.length(0);
   });
 
 });
