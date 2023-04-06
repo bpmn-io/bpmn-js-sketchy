@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/bpmn-io/bpmn-js-sketchy#readme",
   "peerDependencies": {
-    "bpmn-js": "*",
-    "diagram-js": "*"
+    "bpmn-js": ">= 11",
+    "diagram-js": ">= 11"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
