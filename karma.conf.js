@@ -3,7 +3,11 @@ var suite = 'test/SketchyRendererSpec.js';
 module.exports = function(karma) {
   karma.set({
 
-    frameworks: [ 'mocha', 'chai' ],
+    frameworks: [
+      'mocha',
+      'chai',
+      'webpack'
+    ],
 
     files: [
       suite,
@@ -28,7 +32,7 @@ module.exports = function(karma) {
         rules: [
           {
             test: /\.(bpmn|xml|css)$/,
-            use: 'raw-loader'
+            type: 'asset/source'
           }
         ]
       },
