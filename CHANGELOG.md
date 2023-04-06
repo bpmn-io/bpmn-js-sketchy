@@ -6,6 +6,11 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.7.0
+
+* `FIX`: correctly show connection markers
+* `DEPS`: support `bpmn-js@11+`
+
 ## 0.6.0
 
 * `DEPS`: update dependencies
