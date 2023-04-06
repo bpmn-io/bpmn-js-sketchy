@@ -8,6 +8,17 @@ insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css'));
 
 insertCSS('bpmn-embedded.css', require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'));
 
+insertCSS('test-container.css', `
+  .test-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .test-content-container {
+    flex: 1;
+  }
+`);
+
 import Modeler from 'bpmn-js/lib/Modeler';
 
 import sketchyRendererModule from '../lib';
