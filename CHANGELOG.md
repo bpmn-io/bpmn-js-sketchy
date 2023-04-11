@@ -6,6 +6,10 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.7.2
+
+* `FIX`: correct published files
+
 ## 0.7.1
 
 _Build distribution._
