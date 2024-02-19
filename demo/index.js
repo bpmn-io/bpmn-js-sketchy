@@ -88,7 +88,7 @@ document.querySelector('body').addEventListener('dragover', dropHandler);
 
 window.addEventListener('load', function() {
 
-  var defaultDiagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-sketchy/a891af1fb3c2e6f6b7a85e5e1c562f941b9db24f/test/pizza-collaboration.bpmn';
+  var defaultDiagramUrl = 'https://cdn.statically.io/gh/bpmn-io/bpmn-js-sketchy/a891af1fb3c2e6f6b7a85e5e1c562f941b9db24f/test/pizza-collaboration.bpmn';
 
   // load external diagram file via AJAX and open it
   fetch(defaultDiagramUrl).then(r => r.text()).then(openDiagram);
