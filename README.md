@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/bpmn-io/bpmn-js-sketchy/actions/workflows/CI.yml/badge.svg)](https://github.com/bpmn-io/bpmn-js-sketchy/actions/workflows/CI.yml)
 
-A sketchy renderer for [bpmn-js](https://github.com/bpmn-io/bpmn-js). [__:arrow_right: Try it out__](https://cdn.statically.io/gh/bpmn-io/bpmn-js-sketchy/master/demo/index.html).
+A sketchy renderer for [bpmn-js](https://github.com/bpmn-io/bpmn-js). [__:arrow_right: Try it out__](https://cdn.statically.io/gh/bpmn-io/bpmn-js-sketchy/main/demo/index.html).
 
 ![sketchy renderer at work](docs/screenshot.png)
 
