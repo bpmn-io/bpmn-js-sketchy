@@ -1,9 +1,9 @@
 /* global BpmnJS, download, BpmnJSSketchy, FileDrops */
 
-var file = { name: 'diagram.bpmn' };
+let file = { name: 'diagram.bpmn' };
 
 // modeler instance
-var bpmnEditor = new BpmnJS({
+const bpmnEditor = new BpmnJS({
   container: '#canvas',
   textRenderer: {
     defaultStyle: {
@@ -26,25 +26,23 @@ var bpmnEditor = new BpmnJS({
  * Save diagram contents and print them to the console.
  */
 function downloadSVG() {
-  bpmnEditor.saveSVG((err, svg) => {
-
-    if (err) {
+  bpmnEditor.saveSVG()
+    .then(({ svg }) => {
+      return download(svg, file.name + '.svg', 'application/xml');
+    })
+    .catch(err => {
       return console.error('Failed to save SVG', err);
-    }
-
-    return download(svg, file.name + '.svg', 'application/xml');
-  });
+    });
 }
 
 function downloadBPMN() {
-  bpmnEditor.saveXML({ format: true }, (err, xml) => {
-
-    if (err) {
-      return console.error('Failed to save XML', err);
-    }
-
-    return download(xml, file.name, 'application/xml');
-  });
+  bpmnEditor.saveXML({ format: true })
+    .then(({ xml }) => {
+      return download(xml, file.name, 'application/xml');
+    })
+    .catch(err => {
+      console.error('Failed to save XML', err);
+    });
 }
 
 /**
@@ -55,18 +53,18 @@ function downloadBPMN() {
 function openDiagram(bpmnXML) {
 
   // import diagram
-  bpmnEditor.importXML(bpmnXML, function(err) {
+  bpmnEditor.importXML(bpmnXML)
+    .then(() => {
 
-    if (err) {
-      return console.error('could not import BPMN 2.0 diagram', err);
-    }
+      // access modeler components
+      const canvas = bpmnEditor.get('canvas');
 
-    // access modeler components
-    var canvas = bpmnEditor.get('canvas');
+      // zoom to fit full viewport
+      canvas.zoom('fit-viewport');
+    }).catch(err => {
 
-    // zoom to fit full viewport
-    canvas.zoom('fit-viewport');
-  });
+      console.error('could not import BPMN 2.0 diagram', err);
+    });
 }
 
 // wire save button
@@ -88,7 +86,7 @@ document.querySelector('body').addEventListener('dragover', dropHandler);
 
 window.addEventListener('load', function() {
 
-  var defaultDiagramUrl = 'https://cdn.statically.io/gh/bpmn-io/bpmn-js-sketchy/a891af1fb3c2e6f6b7a85e5e1c562f941b9db24f/test/pizza-collaboration.bpmn';
+  const defaultDiagramUrl = 'https://cdn.statically.io/gh/bpmn-io/bpmn-js-sketchy/a891af1fb3c2e6f6b7a85e5e1c562f941b9db24f/test/pizza-collaboration.bpmn';
 
   // load external diagram file via AJAX and open it
   fetch(defaultDiagramUrl).then(r => r.text()).then(openDiagram);
