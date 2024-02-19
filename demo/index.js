@@ -5,6 +5,9 @@ let file = { name: 'diagram.bpmn' };
 // modeler instance
 const bpmnEditor = new BpmnJS({
   container: '#canvas',
+  keyboard: {
+    bindTo: document.querySelector('body')
+  },
   textRenderer: {
     defaultStyle: {
       fontFamily: '"Virgil"',
