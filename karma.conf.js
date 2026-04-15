@@ -1,4 +1,3 @@
-/* eslint-env node */
 const suite = 'test/SketchyRendererSpec.js';
 
 // use puppeteer provided Chrome for testing

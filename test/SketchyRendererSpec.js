@@ -6,9 +6,11 @@ import {
   insertCSS
 } from 'bpmn-js/test/helper';
 
-insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css'));
+import diagramCSS from 'diagram-js/assets/diagram-js.css';
+import bpmnFontCSS from 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 
-insertCSS('bpmn-embedded.css', require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'));
+insertCSS('diagram-js.css', diagramCSS);
+insertCSS('bpmn-font.css', bpmnFontCSS);
 
 insertCSS('test-container.css', `
   .test-container {
