@@ -6,6 +6,14 @@ All notable changes to [bpmn-js-sketchy](https://github.com/bpmn-io/bpmn-js-sket
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.8.0
+
+* `CHORE`: drop UMD distribution
+* `DEPS`: update to `min-dom@5.3.0`
+* `DEPS`: update to `min-dash@5.0.0`
+* `DEPS`: update to `ids@3.0.3`
+* `DEPS`: update to `tiny-svg@4.1.4`
+
 ## 0.7.2
 
 * `FIX`: correct published files
