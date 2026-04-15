@@ -72,9 +72,6 @@ describe('SketchyRenderer', function() {
 
     var modeler = new Modeler({
       container: container,
-      keyboard: {
-        bindTo: document
-      },
       textRenderer: {
         defaultStyle: {
           fontFamily: '"Virgil"',
