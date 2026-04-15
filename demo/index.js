@@ -1,13 +1,13 @@
-/* global BpmnJS, download, BpmnJSSketchy, FileDrops */
+import BpmnModeler from 'https://cdn.jsdelivr.net/npm/bpmn-js@18.14.0/lib/Modeler.js/+esm';
+import BpmnJSSketchy from 'https://cdn.jsdelivr.net/npm/bpmn-js-sketchy@0.8.0/+esm';
+import fileDrop from 'https://cdn.jsdelivr.net/npm/file-drops@0.7.0/+esm';
+import download from 'https://cdn.jsdelivr.net/npm/downloadjs@1.4.7/download.js/+esm';
 
 let file = { name: 'diagram.bpmn' };
 
 // modeler instance
-const bpmnEditor = new BpmnJS({
+const bpmnEditor = new BpmnModeler({
   container: '#canvas',
-  keyboard: {
-    bindTo: document.querySelector('body')
-  },
   textRenderer: {
     defaultStyle: {
       fontFamily: '"Virgil"',
@@ -76,7 +76,7 @@ document.querySelector('#download-svg').addEventListener('click', downloadSVG);
 // wire save button
 document.querySelector('#download-bpmn').addEventListener('click', downloadBPMN);
 
-const dropHandler = FileDrops('Drop a BPMN diagram', function(files) {
+const dropHandler = fileDrop('Drop a BPMN diagram', function(files) {
 
   if (files.length) {
     file = files[0];
