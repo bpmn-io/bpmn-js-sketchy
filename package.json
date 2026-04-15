@@ -30,9 +30,9 @@
     "diagram-js": ">= 11"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
     "bpmn-js": "^17.0.2",
     "chai": "^6.2.2",
     "diagram-js": "^14.0.0",
@@ -47,7 +47,7 @@
     "mocha-test-container-support": "^0.2.0",
     "npm-run-all2": "^8.0.4",
     "puppeteer": "^24.40.0",
-    "rollup": "^4.12.0",
+    "rollup": "^4.60.1",
     "rollup-plugin-string": "^3.0.0",
     "webpack": "^5.106.2"
   },
