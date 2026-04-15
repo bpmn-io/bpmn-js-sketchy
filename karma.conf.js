@@ -9,7 +9,6 @@ module.exports = function(karma) {
 
     frameworks: [
       'mocha',
-      'chai',
       'webpack'
     ],
 
